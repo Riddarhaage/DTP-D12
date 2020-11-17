@@ -172,7 +172,7 @@ namespace MolkFreeCalc
             {
                 // Powers & Logarithms:
                 case "x²": SetX(X * X); break;
-                case "√x": SetX(X / 2); break;
+                case "√x": SetX(Math.Sqrt(X)); break;
                 case "log x": /* NYI: 10th Logarithm */ break;
                 case "ln x": /* NYI: Natural Logarithm */ break;
                 case "10ˣ": /* NYI: Exponent of 10 */ break;
