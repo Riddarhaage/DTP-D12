@@ -105,5 +105,15 @@ namespace MolkFreeCalc
             cs.Roll();
             UpdateNumberField();
         }
+        private void OpBtn_sto(object sender, RoutedEventArgs e)
+        {
+            string op = (sender as Button).Content.ToString();
+            cs.SetVar(op);
+        }
+        private void OpBtn_rcl(object sender, RoutedEventArgs e)
+        {
+            string op = (sender as Button).Content.ToString();
+            cs.GetVar(op);
+        }
     }
 }

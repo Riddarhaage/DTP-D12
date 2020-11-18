@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MolkFreeCalc"
         mc:Ignorable="d"
-        Title="MölkFreeCalc v0.01" Height="585" Width="590">
+        Title="MölkFreeCalc v0.01" Height="585" Width="790">
     <Grid Margin="0,0,0,0">
         <TextBlock Name="LetterField" HorizontalAlignment="Left" Height="200" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" FontSize="30"/>
         <TextBlock Name="NumberField" HorizontalAlignment="Left" Height="200" Margin="50,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" FontSize="30"/>
@@ -41,6 +41,12 @@
         <Button Content="tan" Click="OpBtn_unop" HorizontalAlignment="Left" Margin="490,312,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
         <Button Content="cos" Click="OpBtn_unop" HorizontalAlignment="Left" Margin="490,261,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
         <Button Content="sin" Click="OpBtn_unop" HorizontalAlignment="Left" Margin="490,211,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
+        <Button Content="rcl A" Click="OpBtn_rcl" HorizontalAlignment="Left" Margin="570,461,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
+        <Button Content="rcl B" Click="OpBtn_rcl" HorizontalAlignment="Left" Margin="570,411,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
+        <Button Content="rcl C" Click="OpBtn_rcl" HorizontalAlignment="Left" Margin="570,361,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
+        <Button Content="sto A" Click="OpBtn_sto" HorizontalAlignment="Left" Margin="570,312,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
+        <Button Content="sto B" Click="OpBtn_sto" HorizontalAlignment="Left" Margin="570,261,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
+        <Button Content="sto C" Click="OpBtn_sto" HorizontalAlignment="Left" Margin="570,211,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
         <Button Content="e" Click="OpBtn_nilop" HorizontalAlignment="Left" Margin="410,261,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
         <Button Content="π" Click="OpBtn_nilop" HorizontalAlignment="Left" Margin="410,211,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
         <Button Content="enter" Name="EnterBtn" Click="EnterBtnClick" HorizontalAlignment="Left" Margin="10,261,0,0" VerticalAlignment="Top" Width="235" FontSize="30"/>

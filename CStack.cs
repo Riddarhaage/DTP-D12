@@ -223,5 +223,12 @@ namespace MolkFreeCalc
         {
             T = Z; Z = Y; Y = X; X = newX;
         }
+        public void Setvar(string op)
+        {
+        }
+        public void GetVar(string op)
+        {
+
+        }
     }
 }
