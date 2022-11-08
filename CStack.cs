@@ -3,60 +3,63 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace MolkFreeCalc
 {
-    /* CLASS: CStack
-     * PURPOSE: Is essentially a RPN-calculator with four registers X, Y, Z, T
-     *   like the HP RPN calculators. Numeric values are entered in the entry
-     *   string by adding digits and one comma. For test purposes the method
-     *   RollSetX can be used instead. Operations can be performed on the
-     *   calculator preferrably by using one of the methods
-     *     1. BinOp - merges X and Y into X via an operation and rolls down
-     *        the stack
-     *     2. Unop - operates X and puts the result in X with overwrite
-     *     3. Nilop - adds a known constant on the stack and rolls up the stack
-     */
+    /// <summary>
+    /// Is essentially a RPN-calculator with four registers X, Y, Z, T
+    /// like the HP RPN calculators.Numeric values are entered in the entry
+    /// string by adding digits and one comma.For test purposes the method
+    /// RollSetX can be used instead. Operations can be performed on the
+    /// calculator preferrably by using one of the methods
+    /// <list type="number">
+    /// <item>BinOp - merges X and Y into X via an operation and rolls down
+    /// the stack</item>
+    /// <item>Unop - operates X and puts the result in X with overwrite</item>
+    /// <item>Nilop - adds a known constant on the stack and rolls up the stack</item>
+    /// </list>
+    /// </summary>
     public class CStack
     {
         public double X, Y, Z, T;
         public string entry;
-        /* CONSTRUCTOR: CStack
-         * PURPOSE: create a new stack and init X, Y, Z, T and the text entry
-         * PARAMETERS: --
-         */
+        /// <summary>
+        /// create a new stack and init X, Y, Z, T and the text entry
+        /// <param>--</param>
+        /// </summary>
         public CStack()
         {
             X = Y = Z = T = 0;
             entry = "";
         }
-        /* METHOD: StackString
-         * PURPOSE: construct a string to write out in a stack view
-         * PARAMETERS: --
-         * RETURNS: the string containing the values T, Z, Y, X with newlines 
-         *   between them
-         */
+        /// <summary>
+        /// construct a string to write out in a stack view
+        /// <param>--</param>
+        /// </summary>
+        /// <returns>the string containing the values T, Z, Y, X with newlines
+        /// between them/returns>
         public string StackString()
         {
             return $"{T}\n{Z}\n{Y}\n{X}\n{entry}";
         }
-        /* METHOD: SetX
-         * PURPOSE: set X with overwrite
-         * PARAMETERS: double newX - the new value to put in X
-         * RETURNS: --
-         */
+        /// <summary>
+        /// Set X with overwrite
+        /// </summary>
+        /// <returns>--</returns>
+        /// <param name="newX">double newX - the name value to put in X</param>
         public void SetX(double newX)
         {
             X = newX;
         }
-        /* METHOD: EntryAddNum
-         * PURPOSE: add a digit to the entry string
-         * PARAMETERS: string digit - the candidate digit to add at the end of the
-         *   string
-         * RETURNS: --
-         * FAILS: if the string digit does not contain a parseable integer, nothing
-         *   is added to the entry
-         */
+        /// <summary>
+        /// add a digit to the entry string
+        /// </summary>
+        /// <param name="digit">String digit - the candidate digit to add at the end of
+        /// the string</param>
+        /// <returns>--</returns>
+        /// \bug {if the string digit does not contain a parseable integer, nothing
+        /// is added to the entry}
         public void EntryAddNum(string digit)
         {
             int val;
@@ -65,26 +68,26 @@ namespace MolkFreeCalc
                 entry = entry + val;
             }
         }
-        /* METHOD: EntryAddComma
-         * PURPOSE: adds a comma to the entry string
-         * PARAMETERS: --
-         * RETURNS: --
-         * FAILS: if the entry string already contains a comma, nothing is added
-         *   to the entry
-         */
+        /// <summary>
+        /// adds a comma to the entry string
+        /// <param>--</param>
+        /// <returns>--</returns>
+        /// \bug {if the entry string already contains a comma, nothing is added
+        /// to the entry}
+        /// </summary>
         public void EntryAddComma()
         {
             if (entry.IndexOf(",") == -1)
                 entry = entry + ",";
         }
-        /* METHOD: EntryChangeSign
-         * PURPOSE: changes the sign of the entry string
-         * PARAMETERS: --
-         * RETURNS: --
-         * FEATURES: if the first char is already a '-' it is exchanged for a '+',
-         *   if it is a '+' it is changed to a '-', otherwise a '-' is just added
-         *   first
-         */
+        /// <summary>
+        /// changes the sign of the entry string
+        /// <param>--</param>
+        /// <returns>--</returns>
+        /// <remarks>if the first char is already a '-' it is exchanged for a '+',
+        /// if it is a '+' it is changed to a '-', otherwise a '-' is just added
+        /// first</remarks>
+        /// </summary>
         public void EntryChangeSign()
         {
             char[] cval = entry.ToCharArray();
@@ -102,12 +105,10 @@ namespace MolkFreeCalc
                 entry = '-' + entry;
             }
         }
-        /* METHOD: Enter
-         * PURPOSE: converts the entry to a double and puts it into X
-         * PARAMETERS: --
-         * RETURNS: --
-         * FEATURES: the entry is cleared after a successful operation
-         */
+        /// <summary>
+        /// convers the entry to a double and puts it into X
+        /// <remarks>the entry is cleared after a successful operation</remarks>
+        /// </summary>
         public void Enter()
         {
             if (entry != "")
@@ -116,36 +117,32 @@ namespace MolkFreeCalc
                 entry = "";
             }
         }
-        /* METHOD: Drop
-         * PURPOSE: drops the value of X, and rolls down
-         * PARAMETERS: --
-         * RETURNS: --
-         * FEATURES: Z gets the value of T
-         */
+        /// <summary>
+        /// drops the value of X, and rolls down
+        /// <remarks>>Z gets the value of T</remarks>
+        /// </summary>
         public void Drop()
         {
             X = Y; Y = Z; Z = T;
         }
-        /* METHOD: DropSetX
-         * PURPOSE: replaces the value of X, and rolls down
-         * PARAMETERS: double newX - the new value to assign to X
-         * RETURNS: --
-         * FEATURES: Z gets the value of T
-         * NOTES: this is used when applying binary operations consuming
-         *   X and Y and putting the result in X, while rolling down the
-         *   stack
-         */
+        /// <summary>
+        /// replaces the value of X, and rolls down
+        /// <remarks>Z gets the value of T</remarks>
+        /// </summary>
+        /// \note {this is used when applying binary operations consuming
+        /// X and Y and putting the result in X, while rolling down the
+        /// stack}
+        /// <param name="newX">double newX - the new value to assign to X</param>
         public void DropSetX(double newX)
         {
             X = newX; Y = Z; Z = T;
         }
-        /* METHOD: BinOp
-         * PURPOSE: evaluates a binary operation
-         * PARAMETERS: string op - the binary operation retrieved from the
-         *   GUI buttons
-         * RETURNS: --
-         * FEATURES: the stack is rolled down
-         */
+        /// <summary>
+        /// evaluates a binary operation
+        /// </summary>
+        /// <param name="op">string op - the binary operation retrieved from the
+        /// GUI buttons</param>
+        /// <remarks>the stack is rolled down</remarks>
         public void BinOp(string op)
         {
             switch (op)
@@ -187,14 +184,13 @@ namespace MolkFreeCalc
                 case "tan⁻¹": /* NYI: Arc Tangent */ break;
             }
         }
-        /* METHOD: Nilop
-         * PURPOSE: evaluates a "nilary operation" (insertion of a constant)
-         * PARAMETERS: string op - the nilary operation (name of the constant)
-         *   retrieved from the GUI buttons
-         * RETURNS: --
-         * FEATURES: the stack is rolled up, X is preserved in Y that is preserved in
-         *   Z that is preserved in T, T is erased
-         */
+        /// <summary>
+        /// evaluates a "nilary operation" (insertion of a constant)
+        /// </summary>
+        /// <param name="op">string op - the nilary operation (name of the constant)
+        /// retrieved from the GUI buttons</param>
+        /// <remarks>the stack is rolled up, X is preserved in Y that is preserved in
+        ///   Z that is preserved in T, T is erased</remarks>
         public void Nilop(string op)
         {
             switch (op)
@@ -203,22 +199,19 @@ namespace MolkFreeCalc
                 case "e": /* NYI: e Constant */ break;
             }
         }
-        /* METHOD: Roll
-         * PURPOSE: rolls the stack up
-         * PARAMETERS: --
-         * RETURNS: --
-         */
+        /// <summary>
+        /// rolls the tack up
+        /// </summary>
         public void Roll()
         {
             double tmp = T;
             T = Z; Z = Y; Y = X; X = tmp;
         }
-        /* METHOD: Roll
-         * PURPOSE: rolls the stack up and puts a new value in X
-         * PARAMETERS: double newX - the new value to put into X
-         * RETURNS: --
-         * FEATURES: T is dropped
-         */
+        /// <summary>
+        /// rolls the stack up and puts a new value in X
+        /// </summary>
+        /// <remarks>T is dropped</remarks>
+
         public void RollSetX(double newX)
         {
             T = Z; Z = Y; Y = X; X = newX;
