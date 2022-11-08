@@ -152,18 +152,17 @@ namespace MolkFreeCalc
                 case "−": DropSetX(Y - X); break;
                 case "×": DropSetX(Y * X); break;
                 case "÷": DropSetX(Y / X); break;
-                case "yˣ": /* NYI: Power */ break;
-                case "ˣ√y": /* NYI: Xth Root */ break;
+                case "yˣ": DropSetX(Math.Pow(Y, X)); break;
+                case "ˣ√y": DropSetX(X * Math.Pow(Y, 1.0/X)); break;
             }
         }
-        /* METHOD: Unop
-         * PURPOSE: evaluates a unary operation
-         * PARAMETERS: string op - the unary operation retrieved from the
-         *   GUI buttons
-         * RETURNS: --
-         * FEATURES: the stack is not moved, X is replaced by the result of
-         *   the operation
-         */
+        /// <summary>
+        /// evaluates a unary operation
+        /// </summary>
+        /// <param name="op">the unary operation retrieved from the
+        /// GUI buttons</param>
+        /// <remarks>the stack is not moved, X is replaced by the result of
+        /// the operation</remarks>
         public void Unop(string op)
         {
             switch (op)
@@ -171,18 +170,18 @@ namespace MolkFreeCalc
                 // Powers & Logarithms:
                 case "x²": SetX(X * X); break;
                 case "√x": SetX(Math.Sqrt(X)); break;
-                case "log x": /* NYI: 10th Logarithm */ break;
-                case "ln x": /* NYI: Natural Logarithm */ break;
-                case "10ˣ": /* NYI: Exponent of 10 */ break;
-                case "eˣ": /* NYI: Exponent of e */ break;
+                case "log x": SetX(Math.Log10(X)); break;
+                case "ln x": SetX(Math.Log(X)); break;
+                case "10ˣ": SetX(Math.Pow(10,X)); break;
+                case "eˣ": SetX(Math.Pow(Math.E,X)); break;
 
                 // Trigonometry:
                 case "sin": SetX(Math.Sin(X)); break;
-                case "cos": /* NYI: Cosine */ break;
-                case "tan": /* NYI: Tangent */ break;
-                case "sin⁻¹": /* NYI: Arc Sine */ break;
-                case "cos⁻¹": /* NYI: Arc Cosine */ break;
-                case "tan⁻¹": /* NYI: Arc Tangent */ break;
+                case "cos": SetX(Math.Cos(X)); break;
+                case "tan": SetX(Math.Tan(X)); break;
+                case "sin⁻¹": SetX(Math.Pow(Math.Sin(X),-1)); break;
+                case "cos⁻¹": SetX(Math.Pow(Math.Cos(X), -1)); break;
+                case "tan⁻¹": SetX(Math.Pow(Math.Tan(X), -1)); break;
             }
         }
         /// <summary>
@@ -197,7 +196,7 @@ namespace MolkFreeCalc
             switch (op)
             {
                 case "π": RollSetX(Math.PI); break;
-                case "e": /* NYI: e Constant */ break;
+                case "e": RollSetX(Math.E); break;
             }
         }
         /// <summary>
@@ -219,10 +218,11 @@ namespace MolkFreeCalc
         }
         public void Setvar(string op)
         {
+            //NYI
         }
         public void GetVar(string op)
         {
-
+            //NYI
         }
     }
 }
