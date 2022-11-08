@@ -1,0 +1,263 @@
+\hypertarget{class_molk_free_calc_1_1_c_stack}{}\doxysection{Molk\+Free\+Calc.\+CStack Class Reference}
+\label{class_molk_free_calc_1_1_c_stack}\index{MolkFreeCalc.CStack@{MolkFreeCalc.CStack}}
+
+
+Is essentially a RPN-\/calculator with four registers X, Y, Z, T like the HP RPN calculators.\+Numeric values are entered in the entry string by adding digits and one comma.\+For test purposes the method Roll\+SetX can be used instead. Operations can be performed on the calculator preferrably by using one of the methods 
+\begin{DoxyEnumerate}
+\item Bin\+Op -\/ merges X and Y into X via an operation and rolls down the stack 
+\item Unop -\/ operates X and puts the result in X with overwrite 
+\item Nilop -\/ adds a known constant on the stack and rolls up the stack 
+\end{DoxyEnumerate} 
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_a77e7dbdafdc1181000b52c989726e2ec}\label{class_molk_free_calc_1_1_c_stack_a77e7dbdafdc1181000b52c989726e2ec}} 
+{\bfseries CStack} ()
+\begin{DoxyCompactList}\small\item\em create a new stack and init X, Y, Z, T and the text entry --\end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_molk_free_calc_1_1_c_stack_a37264d2d78d6f9f488456d604dea0309}{Stack\+String}} ()
+\begin{DoxyCompactList}\small\item\em construct a string to write out in a stack view --\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_molk_free_calc_1_1_c_stack_ae5c83ab565e9158d6c3bfa335234c78e}{SetX}} (double newX)
+\begin{DoxyCompactList}\small\item\em Set X with overwrite  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_molk_free_calc_1_1_c_stack_a5a627c9851f7156c05b7b1139b06bbaf}{Entry\+Add\+Num}} (string digit)
+\begin{DoxyCompactList}\small\item\em add a digit to the entry string  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_molk_free_calc_1_1_c_stack_acf75e3c62ac91b05caff5bc2ba867ad4}{Entry\+Add\+Comma}} ()
+\begin{DoxyCompactList}\small\item\em adds a comma to the entry string --
+
+\begin{DoxyReturn}{Returns}
+--
+\end{DoxyReturn}
+\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_molk_free_calc_1_1_c_stack_a766a18819e00cfaccd9b39210cb8240b}{Entry\+Change\+Sign}} ()
+\begin{DoxyCompactList}\small\item\em changes the sign of the entry string --
+
+\begin{DoxyReturn}{Returns}
+--
+\end{DoxyReturn}
+\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_molk_free_calc_1_1_c_stack_a5fee1934fa2606502ac80378a25a03e4}{Enter}} ()
+\begin{DoxyCompactList}\small\item\em convers the entry to a double and puts it into X \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_molk_free_calc_1_1_c_stack_a3a10c892f6d7d0897aee7d22cee13b5b}{Drop}} ()
+\begin{DoxyCompactList}\small\item\em drops the value of X, and rolls down \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_molk_free_calc_1_1_c_stack_ae2b8e9086fcb1114de20df20648eb00e}{Drop\+SetX}} (double newX)
+\begin{DoxyCompactList}\small\item\em replaces the value of X, and rolls down \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_molk_free_calc_1_1_c_stack_a92ef6647955b050a962c27d0fbae9464}{Bin\+Op}} (string op)
+\begin{DoxyCompactList}\small\item\em evaluates a binary operation  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_acab3771b8f9c157817da90c01e018fb0}\label{class_molk_free_calc_1_1_c_stack_acab3771b8f9c157817da90c01e018fb0}} 
+void {\bfseries Unop} (string op)
+\item 
+void \mbox{\hyperlink{class_molk_free_calc_1_1_c_stack_a5d421a50b36643e63dc18b99c30542c4}{Nilop}} (string op)
+\begin{DoxyCompactList}\small\item\em evaluates a \char`\"{}nilary operation\char`\"{} (insertion of a constant)  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_a5eb015492f10366f7bc3598593bd73a8}\label{class_molk_free_calc_1_1_c_stack_a5eb015492f10366f7bc3598593bd73a8}} 
+void {\bfseries Roll} ()
+\begin{DoxyCompactList}\small\item\em rolls the tack up  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_molk_free_calc_1_1_c_stack_ab69cc7d3866873fa2e81d8f3bf2b6a46}{Roll\+SetX}} (double newX)
+\begin{DoxyCompactList}\small\item\em rolls the stack up and puts a new value in X  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_a4462b64e424288132b64a00b9555d084}\label{class_molk_free_calc_1_1_c_stack_a4462b64e424288132b64a00b9555d084}} 
+void {\bfseries Setvar} (string op)
+\item 
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_ad71d9c85db62b0aae879a45ea6a34a75}\label{class_molk_free_calc_1_1_c_stack_ad71d9c85db62b0aae879a45ea6a34a75}} 
+void {\bfseries Get\+Var} (string op)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_a5c818380d946f71f26fbb2307b6be61a}\label{class_molk_free_calc_1_1_c_stack_a5c818380d946f71f26fbb2307b6be61a}} 
+double {\bfseries X}
+\item 
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_a20adc57db3c24decc61fff3dd1fd484f}\label{class_molk_free_calc_1_1_c_stack_a20adc57db3c24decc61fff3dd1fd484f}} 
+double {\bfseries Y}
+\item 
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_ad7ca832b0d878d4dadd265444d19ba8f}\label{class_molk_free_calc_1_1_c_stack_ad7ca832b0d878d4dadd265444d19ba8f}} 
+double {\bfseries Z}
+\item 
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_a884ae893a0083f744eeebdbc1e486ab2}\label{class_molk_free_calc_1_1_c_stack_a884ae893a0083f744eeebdbc1e486ab2}} 
+double {\bfseries T}
+\item 
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_a2a437b14225cef51569125f3c1416a9b}\label{class_molk_free_calc_1_1_c_stack_a2a437b14225cef51569125f3c1416a9b}} 
+string {\bfseries entry}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Is essentially a RPN-\/calculator with four registers X, Y, Z, T like the HP RPN calculators.\+Numeric values are entered in the entry string by adding digits and one comma.\+For test purposes the method Roll\+SetX can be used instead. Operations can be performed on the calculator preferrably by using one of the methods 
+\begin{DoxyEnumerate}
+\item Bin\+Op -\/ merges X and Y into X via an operation and rolls down the stack 
+\item Unop -\/ operates X and puts the result in X with overwrite 
+\item Nilop -\/ adds a known constant on the stack and rolls up the stack 
+\end{DoxyEnumerate}
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_a92ef6647955b050a962c27d0fbae9464}\label{class_molk_free_calc_1_1_c_stack_a92ef6647955b050a962c27d0fbae9464}} 
+\index{MolkFreeCalc.CStack@{MolkFreeCalc.CStack}!BinOp@{BinOp}}
+\index{BinOp@{BinOp}!MolkFreeCalc.CStack@{MolkFreeCalc.CStack}}
+\doxysubsubsection{\texorpdfstring{BinOp()}{BinOp()}}
+{\footnotesize\ttfamily void Molk\+Free\+Calc.\+CStack.\+Bin\+Op (\begin{DoxyParamCaption}\item[{string}]{op }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+evaluates a binary operation  
+
+
+\begin{DoxyParams}{Parameters}
+{\em op} & string op -\/ the binary operation retrieved from the GUI buttons\\
+\hline
+\end{DoxyParams}
+
+
+the stack is rolled down\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_a3a10c892f6d7d0897aee7d22cee13b5b}\label{class_molk_free_calc_1_1_c_stack_a3a10c892f6d7d0897aee7d22cee13b5b}} 
+\index{MolkFreeCalc.CStack@{MolkFreeCalc.CStack}!Drop@{Drop}}
+\index{Drop@{Drop}!MolkFreeCalc.CStack@{MolkFreeCalc.CStack}}
+\doxysubsubsection{\texorpdfstring{Drop()}{Drop()}}
+{\footnotesize\ttfamily void Molk\+Free\+Calc.\+CStack.\+Drop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+drops the value of X, and rolls down 
+
+Z gets the value of T\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_ae2b8e9086fcb1114de20df20648eb00e}\label{class_molk_free_calc_1_1_c_stack_ae2b8e9086fcb1114de20df20648eb00e}} 
+\index{MolkFreeCalc.CStack@{MolkFreeCalc.CStack}!DropSetX@{DropSetX}}
+\index{DropSetX@{DropSetX}!MolkFreeCalc.CStack@{MolkFreeCalc.CStack}}
+\doxysubsubsection{\texorpdfstring{DropSetX()}{DropSetX()}}
+{\footnotesize\ttfamily void Molk\+Free\+Calc.\+CStack.\+Drop\+SetX (\begin{DoxyParamCaption}\item[{double}]{newX }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+replaces the value of X, and rolls down 
+
+Z gets the value of T
+
+\begin{DoxyNote}{Note}
+\{this is used when applying binary operations consuming X and Y and putting the result in X, while rolling down the stack\}
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em newX} & double newX -\/ the new value to assign to X\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_a5fee1934fa2606502ac80378a25a03e4}\label{class_molk_free_calc_1_1_c_stack_a5fee1934fa2606502ac80378a25a03e4}} 
+\index{MolkFreeCalc.CStack@{MolkFreeCalc.CStack}!Enter@{Enter}}
+\index{Enter@{Enter}!MolkFreeCalc.CStack@{MolkFreeCalc.CStack}}
+\doxysubsubsection{\texorpdfstring{Enter()}{Enter()}}
+{\footnotesize\ttfamily void Molk\+Free\+Calc.\+CStack.\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+convers the entry to a double and puts it into X 
+
+the entry is cleared after a successful operation\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_acf75e3c62ac91b05caff5bc2ba867ad4}\label{class_molk_free_calc_1_1_c_stack_acf75e3c62ac91b05caff5bc2ba867ad4}} 
+\index{MolkFreeCalc.CStack@{MolkFreeCalc.CStack}!EntryAddComma@{EntryAddComma}}
+\index{EntryAddComma@{EntryAddComma}!MolkFreeCalc.CStack@{MolkFreeCalc.CStack}}
+\doxysubsubsection{\texorpdfstring{EntryAddComma()}{EntryAddComma()}}
+{\footnotesize\ttfamily void Molk\+Free\+Calc.\+CStack.\+Entry\+Add\+Comma (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+adds a comma to the entry string --
+
+\begin{DoxyReturn}{Returns}
+--
+\end{DoxyReturn}
+
+
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000002}{Bug}}]\{if the entry string already contains a comma, nothing is added to the entry\} \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_a5a627c9851f7156c05b7b1139b06bbaf}\label{class_molk_free_calc_1_1_c_stack_a5a627c9851f7156c05b7b1139b06bbaf}} 
+\index{MolkFreeCalc.CStack@{MolkFreeCalc.CStack}!EntryAddNum@{EntryAddNum}}
+\index{EntryAddNum@{EntryAddNum}!MolkFreeCalc.CStack@{MolkFreeCalc.CStack}}
+\doxysubsubsection{\texorpdfstring{EntryAddNum()}{EntryAddNum()}}
+{\footnotesize\ttfamily void Molk\+Free\+Calc.\+CStack.\+Entry\+Add\+Num (\begin{DoxyParamCaption}\item[{string}]{digit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+add a digit to the entry string  
+
+
+\begin{DoxyParams}{Parameters}
+{\em digit} & String digit -\/ the candidate digit to add at the end of the string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+--
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000001}{Bug}}]\{if the string digit does not contain a parseable integer, nothing is added to the entry\} \end{DoxyRefDesc}
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_a766a18819e00cfaccd9b39210cb8240b}\label{class_molk_free_calc_1_1_c_stack_a766a18819e00cfaccd9b39210cb8240b}} 
+\index{MolkFreeCalc.CStack@{MolkFreeCalc.CStack}!EntryChangeSign@{EntryChangeSign}}
+\index{EntryChangeSign@{EntryChangeSign}!MolkFreeCalc.CStack@{MolkFreeCalc.CStack}}
+\doxysubsubsection{\texorpdfstring{EntryChangeSign()}{EntryChangeSign()}}
+{\footnotesize\ttfamily void Molk\+Free\+Calc.\+CStack.\+Entry\+Change\+Sign (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+changes the sign of the entry string --
+
+\begin{DoxyReturn}{Returns}
+--
+\end{DoxyReturn}
+
+
+if the first char is already a \textquotesingle{}-\/\textquotesingle{} it is exchanged for a \textquotesingle{}+\textquotesingle{}, if it is a \textquotesingle{}+\textquotesingle{} it is changed to a \textquotesingle{}-\/\textquotesingle{}, otherwise a \textquotesingle{}-\/\textquotesingle{} is just added first\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_a5d421a50b36643e63dc18b99c30542c4}\label{class_molk_free_calc_1_1_c_stack_a5d421a50b36643e63dc18b99c30542c4}} 
+\index{MolkFreeCalc.CStack@{MolkFreeCalc.CStack}!Nilop@{Nilop}}
+\index{Nilop@{Nilop}!MolkFreeCalc.CStack@{MolkFreeCalc.CStack}}
+\doxysubsubsection{\texorpdfstring{Nilop()}{Nilop()}}
+{\footnotesize\ttfamily void Molk\+Free\+Calc.\+CStack.\+Nilop (\begin{DoxyParamCaption}\item[{string}]{op }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+evaluates a \char`\"{}nilary operation\char`\"{} (insertion of a constant)  
+
+
+\begin{DoxyParams}{Parameters}
+{\em op} & string op -\/ the nilary operation (name of the constant) retrieved from the GUI buttons\\
+\hline
+\end{DoxyParams}
+
+
+the stack is rolled up, X is preserved in Y that is preserved in Z that is preserved in T, T is erased\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_ab69cc7d3866873fa2e81d8f3bf2b6a46}\label{class_molk_free_calc_1_1_c_stack_ab69cc7d3866873fa2e81d8f3bf2b6a46}} 
+\index{MolkFreeCalc.CStack@{MolkFreeCalc.CStack}!RollSetX@{RollSetX}}
+\index{RollSetX@{RollSetX}!MolkFreeCalc.CStack@{MolkFreeCalc.CStack}}
+\doxysubsubsection{\texorpdfstring{RollSetX()}{RollSetX()}}
+{\footnotesize\ttfamily void Molk\+Free\+Calc.\+CStack.\+Roll\+SetX (\begin{DoxyParamCaption}\item[{double}]{newX }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+rolls the stack up and puts a new value in X  
+
+T is dropped\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_ae5c83ab565e9158d6c3bfa335234c78e}\label{class_molk_free_calc_1_1_c_stack_ae5c83ab565e9158d6c3bfa335234c78e}} 
+\index{MolkFreeCalc.CStack@{MolkFreeCalc.CStack}!SetX@{SetX}}
+\index{SetX@{SetX}!MolkFreeCalc.CStack@{MolkFreeCalc.CStack}}
+\doxysubsubsection{\texorpdfstring{SetX()}{SetX()}}
+{\footnotesize\ttfamily void Molk\+Free\+Calc.\+CStack.\+SetX (\begin{DoxyParamCaption}\item[{double}]{newX }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set X with overwrite  
+
+\begin{DoxyReturn}{Returns}
+--
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em newX} & double newX -\/ the name value to put in X\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_molk_free_calc_1_1_c_stack_a37264d2d78d6f9f488456d604dea0309}\label{class_molk_free_calc_1_1_c_stack_a37264d2d78d6f9f488456d604dea0309}} 
+\index{MolkFreeCalc.CStack@{MolkFreeCalc.CStack}!StackString@{StackString}}
+\index{StackString@{StackString}!MolkFreeCalc.CStack@{MolkFreeCalc.CStack}}
+\doxysubsubsection{\texorpdfstring{StackString()}{StackString()}}
+{\footnotesize\ttfamily string Molk\+Free\+Calc.\+CStack.\+Stack\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+construct a string to write out in a stack view --
+
+\begin{DoxyReturn}{Returns}
+the string containing the values T, Z, Y, X with newlines between them/returns\texorpdfstring{$>$}{>} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+CStack.\+cs\end{DoxyCompactItemize}

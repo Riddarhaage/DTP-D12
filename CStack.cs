@@ -119,7 +119,7 @@ namespace MolkFreeCalc
         }
         /// <summary>
         /// drops the value of X, and rolls down
-        /// <remarks>>Z gets the value of T</remarks>
+        /// <remarks>Z gets the value of T</remarks>
         /// </summary>
         public void Drop()
         {
@@ -132,6 +132,7 @@ namespace MolkFreeCalc
         /// \note {this is used when applying binary operations consuming
         /// X and Y and putting the result in X, while rolling down the
         /// stack}
+        /// 
         /// <param name="newX">double newX - the new value to assign to X</param>
         public void DropSetX(double newX)
         {
